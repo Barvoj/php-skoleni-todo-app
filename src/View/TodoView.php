@@ -2,7 +2,7 @@
 
 class TodoView
 {
-    public function render()
+    public function render(array $todos)
     {
         ?><!DOCTYPE html>
 <html lang="cs">
@@ -29,29 +29,21 @@ class TodoView
     </form>
 
     <ul class="todo-list">
-        <li class="todo-item">
-        <span class="todo-text">
-            Zajet do servisu
-        </span>
-            <div class="todo-actions">
-                <a href="#" class="btn btn-toggle">
-                    Hotovo
-                </a>
-                <a href="#" class="btn btn-delete">
-                    Smazat
-                </a>
-            </div>
-        </li>
-        <li class="todo-item">
-        <span class="todo-text completed">
-            Koupit oběd
-        </span>
-            <div class="todo-actions">
-                <a href="#" class="btn btn-delete">
-                    Smazat
-                </a>
-            </div>
-        </li>
+        <?php foreach($todos as $todo) { ?>
+            <li class="todo-item">
+            <span class="todo-text">
+                <?php echo $todo['text']; ?>
+            </span>
+                <div class="todo-actions">
+                    <a href="#" class="btn btn-toggle">
+                        Hotovo
+                    </a>
+                    <a href="#" class="btn btn-delete">
+                        Smazat
+                    </a>
+                </div>
+            </li>
+        <?php } ?>
     </ul>
 </div>
 </body>
