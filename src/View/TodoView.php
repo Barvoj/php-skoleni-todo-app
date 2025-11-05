@@ -29,6 +29,9 @@ class TodoView
     </form>
 
     <ul class="todo-list">
+        <?php if (empty($todos)) { ?>
+            <p class="empty-message">Zatím nemáš žádné úkoly. Přidej si první!</p>
+        <?php } ?>
         <?php foreach($todos as $todo) { ?>
             <li class="todo-item">
             <span class="todo-text">
