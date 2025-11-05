@@ -11,4 +11,13 @@ $controller = new TodoController(
     new TodoView(),
 );
 
-$controller->listOfTodos();
+
+$path = $_SERVER['REQUEST_URI'];
+
+
+if ($path === '/') {
+    $controller->listOfTodos();
+}
+if ($path === '/add') {
+    $controller->addTodo();
+}

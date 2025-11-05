@@ -11,4 +11,16 @@ class TodoService
     {
         return $this->storage->getAll();
     }
+
+    public function addTodo(string $todoText): void
+    {
+        $todos = $this->storage->getAll();
+        $todos[] = [
+            'id' => uniqid(),
+            'text' => $todoText,
+            'isDone' => false,
+            'created' => date('Y-m-d H:i:s'),
+        ];
+        $this->storage->saveAll($todos);
+    }
 }

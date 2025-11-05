@@ -17,4 +17,17 @@ class TodoController
         // Vypsat je do view
         $this->view->render($todos);
     }
+
+    public function addTodo()
+    {
+        $todoText = $_POST['text'];
+        $this->service->addTodo($todoText);
+        $this->redirect('/');
+    }
+
+    private function redirect(string $path): void
+    {
+        header("Location: $path");
+        exit;
+    }
 }
