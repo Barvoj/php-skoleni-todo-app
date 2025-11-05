@@ -2,7 +2,7 @@
 
 class TodoView
 {
-    public function render(array $todos)
+    public function render(array $todos): void
     {
         ?><!DOCTYPE html>
 <html lang="cs">
