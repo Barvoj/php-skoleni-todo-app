@@ -34,13 +34,15 @@ class TodoView
         <?php } ?>
         <?php foreach($todos as $todo) { ?>
             <li class="todo-item">
-            <span class="todo-text">
+            <span class="todo-text <?php if ($todo['isDone']) echo 'completed'; ?>">
                 <?php echo $todo['text']; ?>
             </span>
                 <div class="todo-actions">
-                    <a href="#" class="btn btn-toggle">
-                        Hotovo
-                    </a>
+                    <?php if ($todo['isDone'] === false) { ?>
+                        <a href="#" class="btn btn-toggle">
+                            Hotovo
+                        </a>
+                    <?php } ?>
                     <a href="#" class="btn btn-delete">
                         Smazat
                     </a>
