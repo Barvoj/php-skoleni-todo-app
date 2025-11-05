@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.add-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.add-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.add-form input[type="text"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.add-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-form button:hover {
+    background-color: #45a049;
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.todo-item:last-child {
+    border-bottom: none;
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 16px;
+    color: #333;
+}
+
+.todo-text.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-toggle {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-toggle:hover {
+    background-color: #0b7dda;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #da190b;
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+    padding: 40px;
+    font-style: italic;
+}
+
+.todo-meta {
+    font-size: 12px;
+    color: #999;
+    margin-left: 10px;
+}

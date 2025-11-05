@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List - PHP MVC</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Todo List</h1>
+
+    <!-- Form to add new todo -->
+    <form method="POST" action="/add" class="add-form">
+        <input
+            type="text"
+            name="text"
+            placeholder="Co potřebuješ udělat?"
+            required
+            autofocus
+        >
+        <button type="submit">Přidat</button>
+    </form>
+
+    <ul class="todo-list">
+        <li class="todo-item">
+                <span class="todo-text">
+                    Zajet do servisu
+                </span>
+            <div class="todo-actions">
+                <a href="#" class="btn btn-toggle">
+                    Hotovo
+                </a>
+                <a href="#" class="btn btn-delete">
+                    Smazat
+                </a>
+            </div>
+        </li>
+        <li class="todo-item">
+                <span class="todo-text completed">
+                    Koupit oběd
+                </span>
+            <div class="todo-actions">
+                <a href="#" class="btn btn-delete">
+                    Smazat
+                </a>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
