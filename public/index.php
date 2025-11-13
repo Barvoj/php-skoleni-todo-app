@@ -1,23 +1,9 @@
-<?php declare(strict_types=1);
+<?php
 
-require_once __DIR__ . '/../src/Controller/TodoController.php';
-require_once __DIR__ . '/../src/Model/TodoService.php';
-require_once __DIR__ . '/../src/View/TodoView.php';
-require_once __DIR__ . '/../src/Storage/TodoStorage.php';
+use App\Kernel;
 
+require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
-$controller = new TodoController(
-    new TodoService(new TodoStorage()),
-    new TodoView(),
-);
-
-
-$path = $_SERVER['REQUEST_URI'];
-
-
-if ($path === '/') {
-    $controller->listOfTodos();
-}
-if ($path === '/add') {
-    $controller->addTodo();
-}
+return function (array $context) {
+    return new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']);
+};
