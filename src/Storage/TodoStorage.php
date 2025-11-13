@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Storage;
+
 /**
  * TodoStorage - handles file operations for todos
  * Simple interface: getAll() and saveAll()

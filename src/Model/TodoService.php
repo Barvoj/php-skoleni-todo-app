@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
-require_once __DIR__ . '/../Storage/TodoStorage.php';
+
+namespace App\Model;
 
 class TodoService
 {

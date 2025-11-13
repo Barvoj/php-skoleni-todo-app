@@ -1,10 +1,4 @@
-<?php declare(strict_types=1);
-
-class TodoView
-{
-    public function render(array $todos): void
-    {
-        ?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
@@ -29,29 +23,27 @@ class TodoView
     </form>
 
     <ul class="todo-list">
-        <?php if (empty($todos)) { ?>
+        {% if todos is empty %}
             <p class="empty-message">Zatím nemáš žádné úkoly. Přidej si první!</p>
-        <?php } ?>
-        <?php foreach($todos as $todo) { ?>
+        {% endif %}
+        {% for todo in todos %}
             <li class="todo-item">
-            <span class="todo-text <?php if ($todo['isDone']) echo 'completed'; ?>">
-                <?php echo $todo['text']; ?>
-            </span>
+                <span class="todo-text {{ todo.isDone ? 'completed' : '' }}">
+                    {{ todo.text }}
+                </span>
                 <div class="todo-actions">
-                    <?php if ($todo['isDone'] === false) { ?>
+                    {% if not todo.isDone %}
                         <a href="#" class="btn btn-toggle">
                             Hotovo
                         </a>
-                    <?php } ?>
+                    {% endif %}
                     <a href="#" class="btn btn-delete">
                         Smazat
                     </a>
                 </div>
             </li>
-        <?php } ?>
+        {% endfor %}
     </ul>
 </div>
 </body>
-</html><?php
-    }
-}
+</html>

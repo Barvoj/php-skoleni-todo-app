@@ -1,12 +1,10 @@
 <?php declare(strict_types=1);
-require_once __DIR__ . '/../View/TodoView.php';
-require_once __DIR__ . '/../Model/TodoService.php';
+
+namespace App\Controller;
 
 class TodoController
 {
-    public function __construct(
-        private TodoService $service,
-        private TodoView $view)
+    public function __construct(private TodoService $service)
     {
     }
 
