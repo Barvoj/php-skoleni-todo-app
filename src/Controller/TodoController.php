@@ -2,30 +2,33 @@
 
 namespace App\Controller;
 
-class TodoController
+use App\Model\TodoService;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Attribute\Route;
+
+class TodoController extends AbstractController
 {
     public function __construct(private TodoService $service)
     {
     }
 
-    public function listOfTodos(): void
+    #[Route('/')]
+    public function listOfTodos()
     {
         // Náčíst todo z uložiště
         $todos = $this->service->getListOfTodos();
         // Vypsat je do view
-        $this->view->render($todos);
+        return $this->render('todo/index.html.twig', [
+            'todos' => $todos
+        ]);
     }
 
-    public function addTodo()
+    #[Route('/add', methods: ['POST'])]
+    public function addTodo(Request $request)
     {
-        $todoText = $_POST['text'];
+        $todoText = $request->request->get('text');
         $this->service->addTodo($todoText);
-        $this->redirect('/');
-    }
-
-    private function redirect(string $path): void
-    {
-        header("Location: $path");
-        exit;
+        return $this->redirect('/');
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use App\Storage\TodoStorage;
+
 class TodoService
 {
     public function __construct(private TodoStorage $storage)
