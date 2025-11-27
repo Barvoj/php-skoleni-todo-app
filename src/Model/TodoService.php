@@ -2,28 +2,28 @@
 
 namespace App\Model;
 
-use App\Storage\TodoStorage;
+use App\Entity\Todo;
+use App\Repository\TodoRepository;
 
 class TodoService
 {
-    public function __construct(private TodoStorage $storage)
+    public function __construct(private TodoRepository $todoRepository)
     {
     }
 
+    /**
+     * @return Todo[]
+     */
     public function getListOfTodos(): array
     {
-        return $this->storage->getAll();
+        return $this->todoRepository->findAll();
     }
 
     public function addTodo(string $todoText): void
     {
-        $todos = $this->storage->getAll();
-        $todos[] = [
-            'id' => uniqid(),
-            'text' => $todoText,
-            'isDone' => false,
-            'created' => date('Y-m-d H:i:s'),
-        ];
-        $this->storage->saveAll($todos);
+        $todo = new Todo();
+        $todo->setText($todoText);
+
+        $this->todoRepository->save($todo);
     }
 }
