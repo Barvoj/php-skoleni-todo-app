@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use App\Entity\Todo;
+use App\Entity\User;
 use App\Repository\TodoRepository;
 
 class TodoService
@@ -19,10 +20,11 @@ class TodoService
         return $this->todoRepository->findAll();
     }
 
-    public function addTodo(string $todoText): void
+    public function addTodo(string $todoText, User $user): void
     {
         $todo = new Todo();
         $todo->setText($todoText);
+        $todo->setUser($user);
 
         $this->todoRepository->save($todo);
     }
