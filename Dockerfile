@@ -3,13 +3,12 @@ FROM php:8.2-fpm
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     curl \
-    git \
-    libpq-dev && \
+    git && \
     git config --global user.email "you@example.com" && \
     git config --global user.name "You"
 
-# Install PostgreSQL PDO extension
-RUN docker-php-ext-install pdo_pgsql
+# Install MySQL PDO extension
+RUN docker-php-ext-install pdo_mysql
 
 # Install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
