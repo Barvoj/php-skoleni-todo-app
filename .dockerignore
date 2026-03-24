@@ -1,0 +1,15 @@
+.git
+.idea
+docker/nginx
+docker/php
+docs
+var
+vendor
+node_modules
+docker-config.json
+*.md
+.dockerignore
+.gitignore
+compose.yaml
+Dockerfile
+Dockerfile.prod
